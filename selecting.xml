@@ -8,7 +8,7 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="30dp"
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="101dp" />
@@ -16,7 +16,7 @@
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="30dp"
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="195dp" />
