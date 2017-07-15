@@ -1,3 +1,62 @@
+
+<?php
+if(!@mysql_connect('localhost','root',''))
+{echo 'could not connect';
+die();}
+
+if(!@mysql_select_db(bb))
+{echo 'error';}
+$error1=false;
+$error2=false;
+$error3=false;
+$error4=false;
+$error5=false;
+if(isset($_POST['signin']))
+{
+	$username=$_POST['username'];
+	$email=$_POST['useremail'];
+	$gender=$_POST['gender'];
+	$mon=$_POST['mon'];
+	$date=$_POST['dd'];
+	$year=$_POST['yyyy'];
+	$password=$_POST['password1'];
+	$confpassword=$_POST['password2'];
+	if($password==$confpass)
+	{
+		if(strlen($password)>=8)
+		{
+			
+			
+				if(filter_var($email,FILTER_VALIDATE_EMAIL))
+				{
+					$query=mysql_query("select email from recreg where email='$email'");
+					if((mysql_num_rows($query))==1)
+					{
+						$error1=true;
+						$emsg="email exists,try with diff email";
+					}else
+					{
+						mysql_query("insert into recreg values('".mysql_real_escape_string($username)."','".mysql_real_escape_string($email)."','".mysql_real_escape_string($gender)."','".mysql_real_escape_string($mon)."','".mysql_real_escape_string($date)."','".mysql_real_escape_string($year)."','".mysql_real_escape_string($password)."','".mysql_real_escape_string($confpassword)."')");
+						
+					}
+					
+				}
+				else{
+						$error2=true;
+						$emailms="enter valid email";
+				}
+			
+		}else{
+			$error4=true;
+			$passms="password must be 8 chars";
+		}
+	
+	}
+else{
+	$error5=true;
+	$passnot="passwords not matched";
+}
+}
 <html>
 <form action="register.php" method="POST" >
 <h1>
