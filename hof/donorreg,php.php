@@ -58,7 +58,14 @@ $emailval=$_POST['email'];
 $phn=$_POST['phno'];
 $pwd=$_POST['password'];
 $unid=$u;
-
+if(strlen($password)>=8)
+		{
+			if(filter_var($email,FILTER_VALIDATE_EMAIL))
+				{
+					$sql=mysql_query("select * from login where username='".$Name."'");
+					$norows=mysql_num_rows($sql);
+					if($norows==0)
+					{
 $sql = "INSERT INTO user (uid,fname,lname,phn,uname,gender,pwd)VALUES('$u','$fname','$lname','$phn','$emailval')";
 
 if ($conn->query($sql) === TRUE) {
