@@ -1,33 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout
     android:layout_height="match_parent"
-    tools:context="com.example.manoj.unitedway.Admin">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:id="@+id/user"
+        android:text="UserName"
+        android:layout_marginTop="100dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#FF0000"
+        />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_admin" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:hint="username.."
+        android:layout_marginTop="10dp"
+        android:id="@+id/uname" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_marginTop="50dp"
+        android:text="UserEmail"
+
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#FF0000"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="usermail.."
+        android:id="@+id/uemail"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/userp"
+    android:text="UserPassword"
+    android:layout_marginTop="50dp"
+    android:textAppearance="?android:textAppearanceLarge"
+    android:textColor="#FF0000"
+    />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="userpassword.."
+        android:id="@+id/password"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:text="Submit"
+        android:onClick="doLogin"
+        android:textColor="#FFF"
+        android:background="#7b2121"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
