@@ -62,19 +62,27 @@ if(strlen($password)>=8)
 		{
 			if(filter_var($email,FILTER_VALIDATE_EMAIL))
 				{
-					$sql=mysql_query("select * from login where username='".$Name."'");
+					$sql=mysql_query("select * from login where username='".$emailval."'");
 					$norows=mysql_num_rows($sql);
 					if($norows==0)
 					{
-$sql = "INSERT INTO user (uid,fname,lname,phn,uname,gender,pwd)VALUES('$u','$fname','$lname','$phn','$emailval')";
+						$sql = "INSERT INTO user (uid,fname,lname,phn,uname,gender,pwd)VALUES('$u','$fname','$lname','$phn','$emailval')";
 
-if ($conn->query($sql) === TRUE) {
-    echo $u ."the record created successfully";
-	$u++;
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
+							if ($conn->query($sql) === TRUE) {
+								echo $u ."the record created successfully";
+									$u++;
+							} else {
+								echo "Error: " . $sql . "<br>" . $conn->error;
+							}
+					}else{
+						echo"email already exists";
+					}
+				}else{
+					echo"enter valid email address";
+				}
+		}else{
+			echo"password must contain greater than 8 characters";
+		}
 $conn->close();
 ?>
   <body>
