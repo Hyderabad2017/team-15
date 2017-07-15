@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Message"
-        android:textColor="#0080"
+        android:textColor="#008000"
         android:visibility="visible" />
 
     <Button
