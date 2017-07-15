@@ -8,23 +8,23 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="101dp" />
 
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="195dp" />
 
     <Spinner
         android:id="@+id/spinner5"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
 
         tools:layout_editor_absoluteX="270dp"
         tools:layout_editor_absoluteY="285dp" />
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Blood Group"
+        android:text="BloodGroup"
         tools:layout_editor_absoluteX="53dp"
         tools:layout_editor_absoluteY="91dp" />
 
