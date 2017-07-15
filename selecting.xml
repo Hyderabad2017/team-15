@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc.myapplication.MainActivity">
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="195dp" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="#0047ab"
+        android:text="search"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Blood Group"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="city"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Area"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="275dp" />
+
+</android.support.constraint.ConstraintLayout>
