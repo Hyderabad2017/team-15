@@ -1,208 +1,264 @@
-package com.example.ranjith.united;
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registration"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/username"
+            android:hint="Enter Your Name"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+            />
 
-public class Donor extends AppCompatActivity {
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Blood Group"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-    private EditText username;
-    private TextView userbgroup;
-    private Spinner spinner;
-    private EditText userage;
-    private EditText usermobile;
-    private EditText userarea;
-    private EditText usercity;
-    private EditText useremail;
-    private EditText userpassword;
-    private EditText userpassword1,Weight;
-    String m_name, m_age, m_mobile, m_area, m_city, m_email, m_password, m_retype, m_blood,m_weight;
-    String var;
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/userbgroup"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:editable="false"
+                />
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donor);
-        username = (EditText) findViewById(R.id.username);
-        userage = (EditText) findViewById(R.id.userage);
-        usermobile = (EditText) findViewById(R.id.usermobile);
-        userarea = (EditText) findViewById(R.id.userarea);
-        usercity = (EditText) findViewById(R.id.usercity);
-        useremail = (EditText) findViewById(R.id.useremail);
-        userpassword = (EditText) findViewById(R.id.userpassword);
-        userpassword1 = (EditText) findViewById(R.id.userpassword1);
-        Weight = (EditText) findViewById(R.id.mweight);
-        userbgroup = (TextView) findViewById(R.id.userbgroup);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Select\t\t");
-        arrayList.add("A plus");
-        arrayList.add("A minus");
-        arrayList.add("B plus");
-        arrayList.add("B minus");
-        arrayList.add("O plus");
-        arrayList.add("O minus");
-        arrayList.add("AB plus");
-        arrayList.add("AB minus");
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, arrayList);
-        spinner.setAdapter(adapter);
+            <Spinner
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:id="@+id/spinner"
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                android:layout_toEndOf="@+id/editText"
+                android:layout_weight="1"
+                />
 
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                var = adapter.getItem(i);
-                userbgroup.setText(var);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-    }
-
-    public void doRegister(View view) {
+        </LinearLayout>
 
 
-        m_name = username.getText().toString();
-        m_age = userage.getText().toString();
-        if (m_age == null) {
-            m_age = 0 + "";
-        }
-        m_mobile = usermobile.getText().toString();
-        m_area = userarea.getText().toString();
-        m_city = usercity.getText().toString();
-        m_blood = userbgroup.getText().toString();
-        m_email = useremail.getText().toString();
-        m_weight = Weight.getText().toString();
-        m_password = userpassword.getText().toString();
-        m_retype = userpassword1.getText().toString();
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(m_email);
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-        if (matcher.find()) {
-            //Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
-            if (Integer.parseInt(m_age) > 18) {
-                if (m_password.equals(m_retype)) {
-                    if (m_password.length() >= 6) {
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userage"
+            android:inputType="number"
+            android:padding="15dp"
+            android:hint="Age"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile Number"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-                        store();
-                        Intent intent=new Intent(this,Login.class);
-                        startActivity(intent);
-                    }
-                    else
-                    {
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/usermobile"
+            android:inputType="number"
+            android:padding="15dp"
+            android:hint="Enter Mobile Number"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Area"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-                        Toast.makeText(getApplicationContext(),"Check Your Password",Toast.LENGTH_LONG).show();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Re-enter Your Password",Toast.LENGTH_LONG).show();
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userarea"
+            android:hint="Enter Area"
+            android:padding="15dp"
 
-                }
-            }
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Check Your Mail",Toast.LENGTH_LONG).show();
-        }
-    }
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/usercity"
+            android:hint="Enter City"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-
-
-
-
-
-
-
-
-
-
-
-    public void store()
-    {
-        String tag_string_req = "req_register";
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_REGISTER, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-
-
-
-
-            }
-        }, new Response.ErrorListener() {
-
-
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        })
-
-        {
-
-
-
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-
-                params.put("Name", m_name);
-                params.put("Email", m_email);
-                params.put("Password", m_password);
-                params.put("Age", m_age);
-                params.put("Bgroup", m_blood);
-                params.put("Phone", m_mobile);
-                RadioGroup radio = (RadioGroup) findViewById(R.id.usergender);
-                RadioButton rb = (RadioButton) findViewById(radio.getCheckedRadioButtonId());
-                String gender = rb.getText().toString();
-                params.put("Gender",gender);
-                params.put("City", m_city);
-                params.put("Area", m_area);
-                params.put("Weight",m_weight);
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:id="@+id/useremail"
+            android:hint="Enter Email"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+            />
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-                return params;}
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/userpassword"
+            android:hint="Enter Password"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Minimum Of 6 Characters"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retype Password"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-        };
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/userpassword1"
+            android:padding="15dp"
+            android:hint="Re-enter your password"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Gender"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="10dp"
+            />
 
-    }
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/usergender"
+
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/usermale"
+                android:text="Male"
+                android:checked="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/userfemale"
 
 
+                />
 
-}
+        </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Weight"
+            android:textColor="#FF0000"
+            android:id="@+id/weight"
+            android:textAppearance="?android:textAppearanceLarge"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mweight"
+            android:hint="    weight"
+            />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userbutton"
+            android:text="Register"
+            android:onClick="doRegister"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+</ScrollView>
