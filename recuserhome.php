@@ -115,16 +115,49 @@ button:hover{
 color:black;
 background-color:green;
 }
+h2{
+	font-weight:bold;
+	font-size:1.3vw;
+	color:green;
+	float:right;
+}
+h3{
+	font-weight:bold;
+	font-size:1.3vw;
+	color:#bf6c31;
+	float:left;
+}
+.but{
+	width:100%;
+	height:3%;background-color:#31bf8f;
+}
 </style>
 </head>
 <body>
-
+<h3>Search for Bloodgroup</h4>
+<form name="search" method="POST" action="result.php">
+<table>
+<tr>
+<td>
+ <select name="BB">
+  <option value="A+" >A+</option>
+  <option value="A-" >A-</option>
+  <option value="B+" >B+</option>
+  <option value="B-" >B-</option>
+  <option value="AB+">AB+</option>
+  <option value="AB-">AB-</option>
+  <option value="O-">O-</option>
+  <option value="O+" >O+</option>
+ </select>
+</td>
+<td><input type="submit" class="but" name="search"> </td>
+</form>
 <h1>INVENTORY</h1>
-<h2 align="right"><a href="notif.php">Donor Requests</a></h2>
+<h2><a href="notif.php">Donor Requests</a></h2>
 
 
 <form action="recuserhome.php" method="POST">
-<table style="width:100%;margin-left:10%;">
+<table style="width:100%;margin-left:29%;margin-top:-3%;">
   <tr>
     <th>Blood group</th>
     <th>Availability</th>
@@ -172,22 +205,6 @@ background-color:green;
 </table> 
 <button type="submit">SUBMIT</button>
 </form>
-<form name="search" method="POST" action="result.php">
-<table>
-<tr>
-<td>
- <select name="BB">
-  <option value="A+" >A+</option>
-  <option value="A-" >A-</option>
-  <option value="B+" >B+</option>
-  <option value="B-" >B-</option>
-  <option value="AB+">AB+</option>
-  <option value="AB-">AB-</option>
-  <option value="O-">O-</option>
-  <option value="O+" >O+</option>
- </select>
-</td>
-<td><input type="submit" name="search"> </td>
-</form>
+
 </body> 
 </html>
