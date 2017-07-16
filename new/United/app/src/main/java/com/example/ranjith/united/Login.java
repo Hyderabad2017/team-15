@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        usercheck = (EditText) findViewById(R.id.usercheck);
+        //usercheck = (EditText) findViewById(R.id.usercheck);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
         textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
@@ -57,26 +57,8 @@ public class Login extends AppCompatActivity {
         String psd = sp.getString("Password", "");
         editTextEmail.setText(mail);
         editTextPassword.setText(psd);
-        check = new ArrayList<String>();
-        check.add("Select");
-        check.add("Admin");
-        check.add("Recipient");
-        check.add("Donor");
-        final ArrayAdapter<String> arrayBloodAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, check);
-        s_check.setAdapter(arrayBloodAdapter);
-          s_check.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               var=arrayBloodAdapter.getItem(position);
-                usercheck.setText(var);
 
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-          }
-   });
     }
 
 
@@ -110,28 +92,16 @@ public class Login extends AppCompatActivity {
             if (!TextUtils.isEmpty(pwd)) {
 
 
-                if(!var.equalsIgnoreCase("Select")){
 
-                    if(var.equalsIgnoreCase("Admin"))
-                    {
-                         admins();
-
-                    }
-                    else if (var.equalsIgnoreCase("Recipient"))
-                    {
-
-                    }
-                    else if(var.equalsIgnoreCase("Donor"))
-                    {
                         validate();
-                    }
+
                 }
 
 
 
             }
         }
-    }
+
     public void doRegister(View view){
         startActivity(new Intent(this,Donor.class));
     }

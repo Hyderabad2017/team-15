@@ -13,32 +13,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.ranjith.united.Admin"
   >
-    <Spinner
-        android:layout_width="10dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spin_city"
-        android:layout_alignTop="@+id/city_search"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/city_search"
-        android:layout_alignBottom="@+id/city_search"/>
 
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:editable="false"
-        android:hint="City"
-        android:ems="10"
-        android:id="@+id/city_search"
-        android:layout_above="@+id/area_search"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="41dp"
-        android:layout_toStartOf="@+id/spin_group"/>
     <Spinner
         android:layout_width="20dp"
         android:layout_height="wrap_content"
-        android:id="@+id/spin_group"
-        android:layout_alignBottom="@+id/group_search"
-        android:layout_alignTop="@+id/group_search"
+        android:id="@+id/bloodspinner"
+        android:layout_alignBottom="@+id/bloodbank"
+        android:layout_alignTop="@+id/bloodbank"
         android:layout_alignParentEnd="true"/>
     <EditText
         android:layout_width="300dp"
@@ -46,31 +27,54 @@
         android:ems="10"
         android:hint="Bloodbank"
         android:editable="false"
-        android:id="@+id/group_search"
+        android:id="@+id/bloodbank"
         android:layout_marginBottom="31dp"
         android:layout_above="@+id/city_search"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/spin_group"/>
+        />
+
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:editable="false"
-        android:hint="Area"
+        android:hint="Email"
+        android:ems="10"
+        android:id="@+id/city_search"
+        android:layout_marginBottom="42dp"
+        android:layout_above="@+id/area_search"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/area_search"
+        android:hint="reg id"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/reg"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:hint="password"
         android:ems="10"
         android:id="@+id/area_search"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/spin_city"/>
-    <Spinner
-        android:layout_width="10dp"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Accept"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spin_area"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/area_search"
-        android:layout_alignTop="@+id/area_search"
-        android:layout_alignBottom="@+id/area_search"/>
-
-
+        android:id="@+id/accept"
+        android:onClick="accept"
+        android:layout_marginEnd="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/bloodspinner"
+        android:layout_marginBottom="36dp" />
 
 
 </RelativeLayout>
