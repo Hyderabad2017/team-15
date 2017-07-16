@@ -87,6 +87,8 @@ body {
 h1 {
     color: red;
     text-align: center;
+	font-size:3vw solid ;
+	margin-top:0px;
 }
 
 p {
