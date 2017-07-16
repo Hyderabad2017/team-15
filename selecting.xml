@@ -9,9 +9,9 @@
     <Spinner
         android:id="@+id/spinner2"
 <<<<<<< HEAD
-        android:layout_width="dp"
+        android:layout_width="50dp"
 <<<<<<< HEAD
-        android:layout_height="dp"
+        android:layout_height="50dp"
 =======
 =======
         android:layout_width="30dp"
