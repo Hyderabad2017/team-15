@@ -37,6 +37,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<style>
+	body{
+		background-color:#4c50c4;
+	}
+	</style>
   </head>
  <?php
 define('DB_NAME','halloffame');
@@ -115,7 +120,7 @@ mysql_close();
       </div>
     </nav>
 	
-  <div class="container"> 
+  <div class="container"style="margin-top:7%;"> 
 <div id="signupbox" style="display margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
