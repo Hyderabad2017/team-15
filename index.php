@@ -13,7 +13,8 @@
 <br>
 <br>
 <a href="login.php"><button onclick="">Donor</button><br><br></a>
-<a href="recipientLogin.php"><button onclick="">Recepient</button></center></a>
+<a href="recipientLogin.php"><button onclick="">Recepieant</button></center><br><br></a>
+<a href="admin.php"><button onclick="">ADMIN</button></center></a>
 </br><br>
 <div class="container">  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
