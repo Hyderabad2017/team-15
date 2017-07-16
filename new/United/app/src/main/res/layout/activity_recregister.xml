@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_recregister"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ranjith.united.recregister">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="Email"
+        android:layout_marginTop="51dp"
+        android:id="@+id/eemail"
+        android:layout_below="@+id/eusername"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:hint="Email"
+
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_below="@+id/eusername"
+        android:layout_alignParentStart="true"
+
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:id="@+id/eusername"
+        android:layout_below="@+id/username"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:text="Username"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:textAppearance="?android:textAppearanceLarge"
+
+        android:id="@+id/username"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Click to send an email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="emails"
+        android:layout_marginTop="25dp"
+        android:id="@+id/button"
+        android:layout_below="@+id/ereg"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ereg"
+        android:hint="Registration id"
+        android:layout_below="@+id/eemail"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:text="RegId"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eemail"
+        android:layout_toStartOf="@+id/button"
+        android:id="@+id/textView3" />
+
+
+</RelativeLayout>

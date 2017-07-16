@@ -8,12 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,20 +22,17 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Login extends AppCompatActivity {
+public class reclogin extends AppCompatActivity {
 
     private EditText editTextEmail;
-    private EditText editTextPassword,usercheck;
-    Spinner s_check;
+    private EditText editTextPassword;
     String emailId,pwd;
-    String var;
     private Button buttonSignIn;
     private TextView textViewSignUp;
-    ArrayList<String> check;
+
     SharedPreferences.Editor editor;
     SharedPreferences shared;
     ProgressDialog progressDialog;
@@ -46,28 +40,18 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        //usercheck = (EditText) findViewById(R.id.usercheck);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
-        textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
-        s_check = (Spinner) findViewById(R.id.spinner);
-        SharedPreferences sp = getSharedPreferences("loginData", Context.MODE_PRIVATE);
-        String mail = sp.getString("UserName", "");
-        String psd = sp.getString("Password", "");
+        editTextEmail=(EditText)findViewById(R.id.editTextEmail);
+        editTextPassword=(EditText)findViewById(R.id.editTextPassword);
+        buttonSignIn=(Button)findViewById(R.id.buttonSignIn);
+        textViewSignUp=(TextView)findViewById(R.id.textViewSignUp);
+        SharedPreferences sp=getSharedPreferences("loginData", Context.MODE_PRIVATE);
+        String mail=sp.getString("UserName","");
+        String psd=sp.getString("Password","");
         editTextEmail.setText(mail);
         editTextPassword.setText(psd);
 
-
     }
-
-
-
     public void doLogin(View view) {
-
-
-
-
         emailId = editTextEmail.getText().toString();
         pwd = editTextPassword.getText().toString();
         CheckBox checkBox = (CheckBox) findViewById(R.id.rememberMe);
@@ -80,30 +64,23 @@ public class Login extends AppCompatActivity {
         }
 
 
-        progressDialog = new ProgressDialog(Login.this);
+        progressDialog = new ProgressDialog(reclogin.this);
         progressDialog.setTitle("Logging In");
         progressDialog.setMessage("Retreiving Data...");
         progressDialog.setCancelable(false);
         progressDialog.show();
-
         SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         if (!TextUtils.isEmpty(emailId)) {
             if (!TextUtils.isEmpty(pwd)) {
 
-
-
-                        validate();
-
-                }
-
-
+                validate();
 
             }
         }
-
+    }
     public void doRegister(View view){
-        startActivity(new Intent(this,Donor.class));
+        startActivity(new Intent(this,recregister.class));
     }
 
 
@@ -111,7 +88,7 @@ public class Login extends AppCompatActivity {
     private void validate() {
         String tag_string_req = "req_login";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+                AppConfig.URL_RECLOGIN, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -123,25 +100,24 @@ public class Login extends AppCompatActivity {
                     boolean error = det.getBoolean("error");
                     if(!error)
                     {
-                        Toast.makeText(Login.this,"Login Success",Toast.LENGTH_LONG).show();
+                        Toast.makeText(reclogin.this,"Login Success",Toast.LENGTH_LONG).show();
                         editor.putString("mail",emailId);
                         editor.apply();
                         editor.commit();
                         progressDialog.cancel();
-                        startActivity(new Intent(Login.this,NavSearch.class));
+                        startActivity(new Intent(reclogin.this,Test.class));
 
                     }
                     else
                     {
 
                         progressDialog.cancel();
-
-
+                        //startActivity(new Intent(reclogin.this,NavSearch.class));
+                        Toast.makeText(reclogin.this, "Check the credentials", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
 
 
 
@@ -170,8 +146,8 @@ public class Login extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("Email", emailId);
-                params.put("Password",pwd);
+                params.put("email", emailId);
+                params.put("pwd",pwd);
 
 
 
@@ -184,3 +160,5 @@ public class Login extends AppCompatActivity {
 
 
 }
+
+
