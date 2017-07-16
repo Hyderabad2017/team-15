@@ -38,6 +38,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <style>
+  body{
+	  background-color:#7635b7;
+  }
+  </style>
 
   <body>
 
@@ -102,7 +107,7 @@ mysql_close();
 ?>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <div class="container" >
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -124,7 +129,7 @@ mysql_close();
 
 
 
-    <div class="container">    
+    <div class="container"style="margin-top:6%;">    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
@@ -136,7 +141,7 @@ mysql_close();
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form id="loginform" class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+                        <form id="loginform" class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -159,7 +164,7 @@ mysql_close();
                                     </div>
 
 
-                                <div style="margin-top:10px" class="form-group">
+                                <div style="margin-top:10px;margin-left:2%;" class="form-group">
                                     <!-- Button -->
 								<button type="submit" class="btn btn-success" >
                                     <div class="col-sm-12 controls">
