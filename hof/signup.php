@@ -38,38 +38,60 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
- <?
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "halloffame";
-global $u;
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+ <?php
+define('DB_NAME','halloffame');
+define('DB_USER','root');
+define('DB_PASSWORD','');
+define('DB_HOST','localhost');
 
+$link=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
+
+if(!$link)
+{
+	die('could not connect:'.mysql_error());
+}
+$db_selected=mysql_select_db(DB_NAME,$link);
+if(!$db_selected)
+{
+	die('can\'t use'.DB_NAME.':'.mysql_error());
+}
+if(isset($_POST["signin"]))
+{
 $fname=$_POST['firstname'];
 $lname=$_POST['lastname'];
-$genderval=$_POST['gender'];
-$emailval=$_POST['email'];
-$phn=$_POST['phno'];
-$pwd=$_POST['password'];
-$unid=$u;
+$E_mail=$_POST['email'];
+$gender=$_POST['gender'];
+$password=$_POST['password'];
+$phno=$_POST['phno'];
+$bgroup=$_POST['bgroup'];
+$sql2="insert into user(fname,lname,phn,uname,gender,pwd,bgroup) values('$fname','$lname','$phno','$E_mail','$gender','$password','$bgroup')";
 
-$sql = "INSERT INTO user (uid,fname,lname,phn,uname,gender,pwd)VALUES('$u','$fname','$lname','$phn','$emailval')";
+$sql=mysql_query("select * from user where uname='".$E_mail."'");
+$norows=mysql_num_rows($sql);
+if($norows==0)
+{
+	//$result1=mysql_query("insert into login(username,password) values('$E_mail','$password')");
+	$result2=mysql_query("insert into user(fname,lname,phn,uname,gender,pwd,bgroup) values('$fname','$lname','$phno','$E_mail','$gender','$password','$bgroup')");
 
-if ($conn->query($sql) === TRUE) {
-    echo $u ."th record created successfully";
-	$u++;
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+	echo 'account created successfully';
+	header("Location:userhome.php");
+	
+}
+else if($norows==1)
+{
+	echo 'account already exists';
+	header("Location:login.php");
 }
 
-$conn->close();
+if(!mysql_query($result2))
+{
+	die('error:'.mysql_error());
+}
+}
+mysql_close();
+
 ?>
+
   <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -80,7 +102,7 @@ $conn->close();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">HallOfFame</a>
+          
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -101,7 +123,7 @@ $conn->close();
                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
                         </div>  
                         <div class="panel-body" >
-                            <form id="signupform" action ="signup.php" class="form-horizontal" role="form">
+                            <form id="signupform" method="post" action ="signup.php" class="form-horizontal" role="form">
                                 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
                                     <p>Error:</p>
@@ -115,19 +137,36 @@ $conn->close();
                                 <div class="form-group">
                                     <label for="firstname" class="col-md-3 control-label">First Name</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="firstname" value="<?php echo $firstname;?>" placeholder="First Name">
+                                        <input type="text" class="form-control" name="firstname" value="" placeholder="First Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-md-3 control-label">Last Name</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="lastname" value="<?php echo $lastname;?>" placeholder="Last Name">
+                                        <input type="text" class="form-control" name="lastname" value="" placeholder="Last Name">
+                                    </div>
+                                </div>
+								<div class="form-group">
+                                    <label for="BloodGroup" class="col-md-3 control-label">Blood Group</label>
+								
+                                    <div class="col-md-9">
+                                        <select class="form-control" name="bgroup" >
+									<option value="A+">A+</option>
+									<option value="A-">A-</option>
+									<option value="B+">B+</option>
+									<option value="B-">B-</option>
+									<option value="AB+">AB+</option>
+									<option value="AB-+">AB-</option>
+									<option value="O+">O+</option>
+									<option value="O-">O-</option>
+									
+									</select>
                                     </div>
                                 </div>
                                  <div class="form-group">
                                     <label for="email" class="col-md-3 control-label">Email</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="email" value="<?php echo $email;?>" placeholder="Email Address">
+                                        <input type="text" class="form-control" name="email" value="" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -159,7 +198,7 @@ $conn->close();
                                 <div class="form-group">
                                     <!-- Button -->                                        
                                     <div class="col-md-offset-3 col-md-9">
-                                        <input id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</input>
+                                        <input id="btn-signup" type="submit" name="signin" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</input>
                                          
                                     </div>
                                 </div>
